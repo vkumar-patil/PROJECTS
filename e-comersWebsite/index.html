@@ -21,7 +21,11 @@
     <!-- Nav tabs -->
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <a class="navbar-brand"
-        ><img src="/img/navbar.jpg" style="height: 80px; border-radius: 100%" />
+        ><img
+          src="./img/navbar.jpg"
+          style="height: 80px; border-radius: 100%"
+          alt="food img"
+        />
         FoodZone</a
       >
       <button
@@ -71,13 +75,19 @@
             Search
           </button>
         </form>
-
-        <button type="button" class="btn btn-primary">cart</button>
+        <button
+          id="showcartonbutton"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          cart<span id="menuCountincarts">0</span>
+        </button>
       </div>
     </nav>
     <!-- navbarEnd -->
     <header style="position: relative">
-      <img src="/img/header img.jpg" / style="width: 100%;height: 300px;">
+      <img src="./img/header img.jpg" / style="width: 100%;height: 300px;">
       <div style="position: absolute; top: 35%; left: 20%; color: aliceblue">
         <h4>Lorem ipsum dolor sit amet consectetur adipisicing.</h4>
         <p>
@@ -87,11 +97,23 @@
       </div>
     </header>
     <!-- headerEnd -->
-    <div class="modal" tabindex="-1" role="dialog">
+
+    <!-- ShowMenus -->
+    <div class="row" id="showcart"></div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Carts Items</h5>
             <button
               type="button"
               class="close"
@@ -101,14 +123,27 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <p>Modal body text goes here.</p>
+
+          <div class="modal-body" id="productincard"></div>
+          <div>Total Price<span id="totalPrice">0</span></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">
+              Process To Pay
+            </button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./script.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
