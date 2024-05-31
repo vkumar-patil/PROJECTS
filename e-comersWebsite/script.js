@@ -47,8 +47,8 @@ menu.forEach((Element) => {
   showcart.appendChild(rowdiv);
 });
 //menus add to cart
-cart = [];
-totalPrice = 0;
+let cart = [];
+let totalPrice = 0;
 function addtocart(ID) {
   console.log(ID);
   indexNumber = menu.findIndex((Element) => Element.id == ID);
@@ -57,13 +57,17 @@ function addtocart(ID) {
     cart.push(menu[indexNumber]);
     console.log(cart);
     console.log(cart.length);
+    document.getElementById("menuCountincarts").innerHTML = cart.length;
   }
-  document.getElementById("menuCountincarts").innerHTML = cart.length;
 }
 document
   .getElementById("showcartonbutton")
   .addEventListener("click", showproductsoncart);
+productincard = document.getElementById("productincard");
 function showproductsoncart() {
+  productincard.innerHTML = "";
+  totalPrice = 0;
+
   cart.forEach((Element) => {
     cartlist = document.createElement("div");
     cartlist.innerHTML = `
@@ -74,19 +78,17 @@ function showproductsoncart() {
                       
 
   `;
-    document.getElementById("productincard").appendChild(cartlist);
-
     totalPrice = totalPrice + Element.price;
+
+    productincard.appendChild(cartlist);
   });
   document.getElementById("totalPrice").innerHTML = `"&#x20b9" ${totalPrice}`;
-
-  function removecart(ID) {
-    indNo = cart.findIndex((Element) => {
-      Element.id == ID;
-    });
-    if (indNo != -1) {
-      cart.splice(indNo, 1);
-    }
-  }
 }
-showproductsoncart();
+function removecart(ID) {
+  indNo = cart.findIndex((ele) => ele.id == ID);
+  if (indNo != -1) {
+    cart.splice(indNo, 1);
+  }
+  showproductsoncart();
+  document.getElementById("menuCountincarts").innerHTML = cart.length;
+}
