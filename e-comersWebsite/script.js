@@ -4,7 +4,7 @@ const menu = [
     menuname: "chikenthandur",
     price: 100,
     discrip: "freshchiken",
-    image: "./img/chikentandur.jpeg",
+    image: "./img/chikenn.jpeg",
   },
   // {
   //   id: 2,

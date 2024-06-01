@@ -1,3 +1,9 @@
 body{
     padding: 0%;margin: 0%;
 }
+#showcart{
+    height: 200px;width: 300px;
+}
+.row{
+    height: 200px;width: 300px;
+}
